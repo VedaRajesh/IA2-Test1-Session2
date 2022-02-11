@@ -28,7 +28,7 @@ char str_rev(char *a)
     for(int i=0;i<length/2;i++)
         {
             t=a[i];
-            a[i]=a[length-1];
+            a[i]=a[length-i];
             a[length-i]=t;
         }
 }

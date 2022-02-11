@@ -1,0 +1,112 @@
+ gcc -g p6final.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x8de: file p6final.c, line 40.
+(gdb) r
+Starting program: /home/runner/IA2-Test1-Session2/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p6final.c:40
+40  {
+(gdb) n
+42      input_string(a);
+(gdb) s
+input_string (a=0x7ffe75d5b870 "\a\207\\\023k\177") at p6final.c:7
+7       printf("enter a string\n");
+(gdb) n
+enter a string
+8       scanf("%s",a);
+(gdb) n
+hello
+9   }
+(gdb) n
+main () at p6final.c:43
+43      string_copy(d,a);
+(gdb) s
+string_copy (d=0x7ffe75d5b8e0 "", a=0x7ffe75d5b870 "hello") at p6final.c:18
+18      for(int i=0;a[i]!='\0';i++)
+(gdb) n
+20              d[i]=a[i];
+(gdb) n
+18      for(int i=0;a[i]!='\0';i++)
+(gdb) n
+20              d[i]=a[i];
+(gdb) n
+18      for(int i=0;a[i]!='\0';i++)
+(gdb) n
+20              d[i]=a[i];
+(gdb) n
+18      for(int i=0;a[i]!='\0';i++)
+(gdb) n
+20              d[i]=a[i];
+(gdb) n
+18      for(int i=0;a[i]!='\0';i++)
+(gdb) n
+20              d[i]=a[i];
+(gdb) n
+18      for(int i=0;a[i]!='\0';i++)
+(gdb) n
+22  }
+(gdb) n
+main () at p6final.c:44
+44      str_rev(a);
+(gdb) s
+str_rev (a=0x7ffe75d5b870 "hello") at p6final.c:25
+25      int length=string_length(a);
+(gdb) n
+26      length-=1;
+(gdb) n
+28      for(int i=0;i<length/2;i++)
+(gdb) n
+30              t=a[i];
+(gdb) n
+31              a[i]=a[length-i];
+(gdb) n
+32              a[length-i]=t;
+(gdb) n
+28      for(int i=0;i<length/2;i++)
+(gdb) n
+30              t=a[i];
+(gdb) n
+31              a[i]=a[length-i];
+(gdb) n
+32              a[length-i]=t;
+(gdb) n
+28      for(int i=0;i<length/2;i++)
+(gdb) n
+34  }
+(gdb) n
+main () at p6final.c:45
+45      output(a);
+(gdb) s
+output (a=0x7ffe75d5b870 "olleh") at p6final.c:37
+37      printf("the reverse is %s",a);
+(gdb) n
+38  }
+(gdb) n
+main () at p6final.c:46
+46      return 0;
+(gdb) n
+47  }(gdb) n
+__libc_start_main (main=0x562305c008d3 <main>, argc=1, argv=0x7ffe75d5ba38, 
+    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
+    stack_end=0x7ffe75d5ba28) at ../csu/libc-start.c:344
+344 ../csu/libc-start.c: No such file or directory.
+(gdb) n
+the reverse is olleh[Inferior 1 (process 101) exited normally]
+(gdb) 
