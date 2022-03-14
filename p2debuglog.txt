@@ -1,4 +1,6 @@
- gcc -g p2original.c
+ gcc -g p2final.c
+ ggb a.out
+bash: ggb: command not found
  gdb a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
@@ -16,30 +18,31 @@ For help, type "help".
 Type "apropos word" to search for commands related to "word"...
 Reading symbols from a.out...done.
 (gdb) b main
-Breakpoint 1 at 0x7dc: file p2original.c, line 25.
+Breakpoint 1 at 0x7de: file p2final.c, line 27.
 (gdb) r
-Starting program: /home/runner/ppa-IA2-practice2/a.out 
+Starting program: /home/runner/IA2-Test1-Session2-3/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
-Breakpoint 1, main () at p2original.c:25
-25      printf("enter the sides of triangle  ");
+Breakpoint 1, main () at p2final.c:27
+27      printf("enter the sides of triangle \n ");
 (gdb) n
-26      a=input_side();
+enter the sides of triangle 
+28      a=input_side();
 (gdb) s
-input_side () at p2original.c:3
+input_side () at p2final.c:3
 3   {
 (gdb) n
 5       scanf("%d",&a);
 (gdb) n
-enter the sides of triangle  1
+ 1
 6       return a;
 (gdb) n
 7   }
 (gdb) n
-main () at p2original.c:27
-27      b=input_side();
+main () at p2final.c:29
+29      b=input_side();
 (gdb) s
-input_side () at p2original.c:3
+input_side () at p2final.c:3
 3   {
 (gdb) n
 5       scanf("%d",&a);
@@ -49,54 +52,48 @@ input_side () at p2original.c:3
 (gdb) n
 7   }
 (gdb) n
-main () at p2original.c:28
-28      c=input_side();
+main () at p2final.c:30
+30      c=input_side();
 (gdb) s
-input_side () at p2original.c:3
+input_side () at p2final.c:3
 3   {
 (gdb) n
 5       scanf("%d",&a);
 (gdb) n
-3
+5
 6       return a;
 (gdb) n
 7   }
 (gdb) n
-main () at p2original.c:29
-29      isscalene=check_scalene(a,b,c);
+main () at p2final.c:31
+31      isscalene=check_scalene(a,b,c);
 (gdb) s
-check_scalene (a=1, b=2, c=3) at p2original.c:11
+check_scalene (a=1, b=2, c=5) at p2final.c:11
 11      if(a!=b && a!=c && b!=a)
-(gdb) p a
-$1 = 1
-(gdb) p b
-$2 = 2
-(gdb) p c
-$3 = 3
 (gdb) n
-12      isscalene=1;
+13     return 1;
 (gdb) n
-13      return isscalene;
+16  }
 (gdb) n
-14  }
-(gdb) n
-main () at p2original.c:30
-30      output(a,b,c,isscalene);
+main () at p2final.c:32
+32      output(a,b,c,isscalene);
 (gdb) s
-output (a=1, b=2, c=3, isscalene=1) at p2original.c:17
-17   if(isscalene==1)
+output (a=1, b=2, c=5, isscalene=1) at p2final.c:19
+19   if(isscalene==1)
 (gdb) n
-18   printf("triangle is scalene");
+20   printf("triangle is scalene");
 (gdb) n
-21  }
+23  }
 (gdb) n
-main () at p2original.c:31
-31      return 0;
+main () at p2final.c:33
+33      return 0;
 (gdb) n
-32  }(gdb) n
-__libc_start_main (main=0x5629a94007d4 <main>, argc=1, argv=0x7ffd6c3d8318, 
-    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
-    stack_end=0x7ffd6c3d8308) at ../csu/libc-start.c:344
+34  }(gdb) 
+__libc_start_main (main=0x56233c8007d6 <main>, argc=1, 
+    argv=0x7ffe3e881f68, init=<optimized out>, fini=<optimized out>, 
+    rtld_fini=<optimized out>, stack_end=0x7ffe3e881f58)
+    at ../csu/libc-start.c:344
 344 ../csu/libc-start.c: No such file or directory.
 (gdb) n
-triangle is scalene[Inferior 1 (process 299) exited normally] 
+triangle is scalene[Inferior 1 (process 45) exited normally]
+(gdb) 
