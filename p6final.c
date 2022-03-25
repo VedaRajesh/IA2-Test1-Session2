@@ -1,7 +1,6 @@
 //what is a string?
 //array of characters terminated by a '\0'
 #include<stdio.h>
-#include<string.h>
 void input_string(char *a)
 {
     printf("enter a string\n");
@@ -10,7 +9,7 @@ void input_string(char *a)
 int string_length(char *a)
 {
     int i=0;
-    for( i=0;a[i]!='\0';i++);
+    for( i=0;a[i]!='\0';i++)
     return i;
 }
 char string_copy(char *d,char *a)
